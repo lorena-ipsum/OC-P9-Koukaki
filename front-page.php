@@ -4,26 +4,29 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-   <section class="banner section fade-in-right">
+   <section class="banner">
        <div class="background-fallback"></div>
        <video class="hero-video" autoplay muted loop playsinline poster="/assets/images/banner.png">
            <source src="<?php echo get_stylesheet_directory_uri() . '/assets/videos/StudioKoukaki_Video_Header.mp4'; ?>" type="video/mp4">
        </video>
        <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?>" alt="logo Fleurs d'oranger & chats errants">
    </section>
-   <section id="story" class="story article__fadein section fade-in-up">
+   <section id="story" class="story article__fadein section fade-in-right">
        <h2><span class="section--titre__focus">L'histoire</span></h2>
        <article id="" class="story__article">
            <p><?php echo get_theme_mod('story'); ?></p>
-       </article class="article__fadein">
-        <?php get_template_part('template-parts/characters'); ?>
        </article>
-       <article id="place" class="article__fadein section fade-in-left">
-           <div>
-               <h3><span class="section--titre__focus"> Le Lieu</span></h3>
-               <p><?php echo get_theme_mod('place'); ?></p>
-           </div>
-       </article>
+       <?php get_template_part('template-parts/characters'); ?>
+       <div id="place" class="article__fadein section fade-in-left">
+    <div class="content-left">
+        <h3><span class="section--titre__focus">Le Lieu</span></h3>
+        <p><?php echo get_theme_mod('place'); ?></p>
+    </div>
+    <div class="content-right">
+        <div class="cloud"></div>
+    </div>
+</div>
+
    </section>
 
    <section id="studio" class="article__fadein section fade-in-down">
@@ -38,6 +41,7 @@ get_header();
             <p><?php get_template_part('template-parts/oscar'); ?></p>
     </section>
 </main><!-- #main -->
+
 
 <?php
 get_footer();

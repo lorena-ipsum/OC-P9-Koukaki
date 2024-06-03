@@ -211,7 +211,7 @@
 
 .section {
   opacity: 0; /* Sections sont cachées au départ */
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-fill-mode: forwards;
 }
 
@@ -262,7 +262,7 @@
   content: url(../assets/images/random_flower.png); /* fleur purple studio */
   transform-origin: center;
   left: 2em;
-    top: 1.5em;
+  top: 1.5em;
 }
 
 .site-footer::before {
@@ -301,3 +301,41 @@
   }
 }
 
+/*--------------------------------------------------------------
+# Swiper Characthers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Le Lieu
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Le Lieu
+--------------------------------------------------------------*/
+
+.story #place {
+  background-image: url(../assets/images/image_place.png);
+}
+
+#place {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+.content-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align items to the right */
+}
+
+.cloud {
+  background: url('../assets/images/Nuages.png') no-repeat;
+  transform-origin: center;
+  position: absolute;
+  left: 1031px;
+  top: 65px;
+  width: 100%; /* Ajustez selon la taille de l'image */
+  height: 100%; /* Ajustez selon la taille de l'image */
+  transition: transform 0.5s ease-out;
+  z-index: 10; /* Assurez-vous qu'ils sont au-dessus des autres éléments */
+}

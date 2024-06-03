@@ -22,11 +22,14 @@ jQuery(document).ready(function($) {
     // Fonction de parallaxe
     function parallax() {
         var scrollPosition = $(window).scrollTop();
-        
+
         // Ajuster la position de la vidéo de fond et de l'image de logo
         $('.background-fallback').css('transform', 'translateY(' + (scrollPosition * 0.5) + 'px)');
         $('.hero-video').css('transform', 'translateY(' + (scrollPosition * 0.3) + 'px)');
         $('.banner img').css('transform', 'translateY(' + (scrollPosition * 0.2) + 'px)');
+
+        // Animer les nuages de droite à gauche
+        $('.cloud').css('transform', 'translateX(-' + (scrollPosition * 0.3) + 'px)');
     }
 
     // Appeler la fonction de parallaxe sur le défilement de la fenêtre
