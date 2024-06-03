@@ -1,0 +1,303 @@
+
+/*--------------------------------------------------------------
+# HERO HEADER
+--------------------------------------------------------------*/
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-video,
+.background-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none; /* Empêche l'affichage des contrôles */
+  transition: opacity 1s ease-in-out, transform 0.1s ease-out; /* Transition pour la parallaxe */
+}
+
+.hero-video {
+  opacity: 0; /* Commence cachée */
+}
+
+.hero-video.loaded {
+  opacity: 1; /* Devient visible quand chargée */
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.banner img {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.1s ease-out; /* Transition pour la parallaxe */
+}
+
+.background-fallback {
+  background: url('../assets/images/banner.png') no-repeat center center/cover;
+  z-index: 0;
+  opacity: 1;
+  transition: transform 0.1s ease-out; /* Transition pour la parallaxe */
+}
+
+.background-fallback.hidden {
+  opacity: 0; /* Devient cachée quand la vidéo est chargée */
+  z-index: -1; /* Envoyer en arrière-plan */
+}
+/*--------------------------------------------------------------
+#  TITRES
+--------------------------------------------------------------*/
+
+/* Flottement */
+@keyframes float-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.section--titre__focus {
+  display: inline-block; // Pour appliquer l'animation correctement
+  animation: float-horizontal 3s ease-in-out infinite;
+  color: #FFF5E9; /* Définir la couleur du texte à blanche */
+}
+
+/* Animation for text appearance */
+@keyframes text-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section--titre__focus {
+  position: relative;
+  color: #FFF5E9; /* Couleur de texte blanche */
+  animation: none;
+}
+
+.section--titre__focus.loaded {
+  animation: text-appear 2s forwards;
+}
+
+/* Exclusion of animation */
+.section--titre__focus.no-animation {
+  animation: none; /* Désactive les animations */
+}
+
+
+/*--------------------------------------------------------------
+# OSCAR NOMINATION
+--------------------------------------------------------------*/
+
+.oscar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: auto;
+  width: 100%; /* Ensure container takes full width */
+  height: 400px; /* Fixed height for the entire section */
+
+  .oscar--titulo {
+    background-image: url('../assets/images/Rectangle23.png');
+    background-position: center; /* Centers the background image */
+    width: 767px; /* Increased width by 24px */
+    height: 311px; /* Increased height by 24px */
+    padding: 65px;
+    margin-right: 24px; /* Spacing between title and image */
+    color: #FFF5E9;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.84px;
+    text-align: left; /* Ensure text is centered */
+  }
+
+  .oscar--image-container {
+    width: 278px;
+    height: 129px;
+    background: url('../assets/images/oscar.png') no-repeat center;
+    background-size: cover;
+    flex-shrink: 0; /* Prevent image from shrinking */
+    display: flex;
+    align-items: center; /* Center image vertically */
+    justify-content: center; /* Center image horizontally */
+  }
+}
+
+
+/*--------------------------------------------------------------
+# ANIMATIONS DES SECTIONS
+--------------------------------------------------------------*/
+
+/* Animation pour fade-in */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.section {
+  opacity: 0; /* Sections sont cachées au départ */
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.section.fade-in-up {
+  animation-name: fade-in-up;
+}
+
+.section.fade-in-down {
+  animation-name: fade-in-down;
+}
+
+.section.fade-in-left {
+  animation-name: fade-in-left;
+}
+
+.section.fade-in-right {
+  animation-name: fade-in-right;
+}
+
+
+/*--------------------------------------------------------------
+# Les fleurs
+--------------------------------------------------------------*/
+
+/* Styles individuels pour chaque fleur */
+.story__article::after {
+  content: url(../assets/images/Hibiscus.png); /* hibiscus de l'histoire */
+  transform-origin: center;
+  left: 82em;
+  top: 7em;
+}
+
+.story h2::after {
+  content: url(../assets/images/Sunflower.png); /* margarida de l'histoire */
+  transform-origin: center;
+  top: 7.5em;
+  left: 1.9em;
+}
+
+#studio h2::after {
+  content: url(../assets/images/flower.png); /* mille-fleur orange */
+  transform-origin: center;
+  left: 87%;
+  top: 2em;
+}
+
+#studio h2::before {
+  content: url(../assets/images/random_flower.png); /* fleur purple studio */
+  transform-origin: center;
+  left: 2em;
+    top: 1.5em;
+}
+
+.site-footer::before {
+  content: url(../assets/images/Sunflower.png); /* margarida footer */
+  transform-origin: center;
+  left: 4em;
+  top: 5em;
+}
+
+.site-footer::after {
+  content: url(../assets/images/orchid.png); /* violeta violet */
+  transform-origin: center;
+  right: 10%;
+  top: 2em;
+  z-index: 100;
+}
+
+/* Les fleurs sont positionnées et tournent */
+.story__article::after,
+.story h2::after,
+#studio h2::after,
+#studio h2::before,
+.site-footer::after,
+.site-footer::before {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: rotateAnimation 10s linear infinite;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg); /* Commence sans rotation */
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg); /* Finalise avec 360 degrés de rotation */
+  }
+}
+
