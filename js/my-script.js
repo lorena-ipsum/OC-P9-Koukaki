@@ -30,11 +30,14 @@ jQuery(document).ready(function($) {
 
         // Animer les nuages de droite à gauche
         $('.cloud').css('transform', 'translateX(-' + (scrollPosition * 0.3) + 'px)');
+
+        // Utiliser requestAnimationFrame pour optimiser la performance
+        requestAnimationFrame(parallax);
     }
 
-    // Appeler la fonction de parallaxe sur le défilement de la fenêtre
+    // Initialiser la fonction de parallaxe sur le défilement de la fenêtre
     $(window).on('scroll', function() {
-        parallax();
+        requestAnimationFrame(parallax);
     });
 
     // Fonction pour ajouter les classes d'animation
@@ -47,6 +50,6 @@ jQuery(document).ready(function($) {
         });
     }
 
-    // Initial call
+    // Appel initial
     addFadeInClasses();
 });

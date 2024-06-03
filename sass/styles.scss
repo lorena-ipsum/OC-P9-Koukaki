@@ -1,4 +1,3 @@
-
 /*--------------------------------------------------------------
 # HERO HEADER
 --------------------------------------------------------------*/
@@ -36,13 +35,13 @@
 
 @keyframes float {
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translate3d(0, -15px, 0);
   }
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -72,13 +71,13 @@
 /* Flottement */
 @keyframes float-horizontal {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateX(15px);
+    transform: translate3d(15px, 0, 0);
   }
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -92,11 +91,11 @@
 @keyframes text-appear {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -117,7 +116,7 @@
 
 
 /*--------------------------------------------------------------
-# OSCAR NOMINATION
+# NOMINATION OSCAR
 --------------------------------------------------------------*/
 
 .oscar {
@@ -126,39 +125,38 @@
   align-items: center;
   position: relative;
   margin: auto;
-  width: 100%; /* Ensure container takes full width */
-  height: 400px; /* Fixed height for the entire section */
+  width: 100%; 
+  height: 25rem; 
 
   .oscar--titulo {
     background-image: url('../assets/images/Rectangle23.png');
-    background-position: center; /* Centers the background image */
-    width: 767px; /* Increased width by 24px */
-    height: 311px; /* Increased height by 24px */
-    padding: 65px;
-    margin-right: 24px; /* Spacing between title and image */
+    background-position: center; 
+    width: 53rem; 
+    height: 19.4375rem; 
+    padding: 4.0625rem;
+    margin-right: 1.5rem; 
     color: #FFF5E9;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
     font-family: 'Quicksand', sans-serif;
-    font-size: 42px;
+    font-size: 2.625rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    letter-spacing: -0.84px;
-    text-align: left; /* Ensure text is centered */
+    letter-spacing: -0.0525rem;
+    text-align: left; 
   }
 
   .oscar--image-container {
-    width: 278px;
-    height: 129px;
+    width: 17.375rem;
+    height: 8.0625rem;
     background: url('../assets/images/oscar.png') no-repeat center;
     background-size: cover;
-    flex-shrink: 0; /* Prevent image from shrinking */
+    flex-shrink: 0; /* Empêche l'image de se rétrécir */
     display: flex;
-    align-items: center; /* Center image vertically */
-    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Centre l'image verticalement */
+    justify-content: center; /* Centre l'image horizontalement */
   }
 }
-
 
 /*--------------------------------------------------------------
 # ANIMATIONS DES SECTIONS
@@ -168,44 +166,44 @@
 @keyframes fade-in-up {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fade-in-down {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translate3d(0, -20px, 0);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fade-in-left {
   0% {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translate3d(-20px, 0, 0);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fade-in-right {
   0% {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translate3d(20px, 0, 0);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -288,24 +286,21 @@
 .site-footer::after,
 .site-footer::before {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
   animation: rotateAnimation 10s linear infinite;
 }
 
 @keyframes rotateAnimation {
   from {
-    transform: translate(-50%, -50%) rotate(0deg); /* Commence sans rotation */
+    transform: translate3d(-50%, -50%, 0) rotate(0deg); /* Commence sans rotation */
   }
   to {
-    transform: translate(-50%, -50%) rotate(360deg); /* Finalise avec 360 degrés de rotation */
+    transform: translate3d(-50%, -50%, 0) rotate(360deg); /* Finalise avec 360 degrés de rotation */
   }
 }
 
 /*--------------------------------------------------------------
 # Swiper Characthers
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Le Lieu
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -332,8 +327,8 @@
   background: url('../assets/images/Nuages.png') no-repeat;
   transform-origin: center;
   position: absolute;
-  left: 1031px;
-  top: 65px;
+  left: 64.4375rem; /* Conversion de 1031px en rem (1031 / 16) */
+  top: 4.0625rem; /* Conversion de 65px en rem (65 / 16) */
   width: 100%; /* Ajustez selon la taille de l'image */
   height: 100%; /* Ajustez selon la taille de l'image */
   transition: transform 0.5s ease-out;
