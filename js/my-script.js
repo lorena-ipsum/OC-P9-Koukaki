@@ -26,13 +26,10 @@ jQuery(document).ready(function($) {
         // Ajuster la position de la vidéo de fond et de l'image de logo
         $('.background-fallback').css('transform', 'translateY(' + (scrollPosition * 0.5) + 'px)');
         $('.hero-video').css('transform', 'translateY(' + (scrollPosition * 0.3) + 'px)');
-        $('.banner img').css('transform', 'translateY(' + (scrollPosition * 0.2) + 'px)');
+        $('.logo-container').css('transform', 'translateY(' + (scrollPosition * 0.2) + 'px)');
 
-        // Animer les nuages de droite à gauche
-        $('.cloud').css('transform', 'translateX(-' + (scrollPosition * 0.3) + 'px)');
-
-        // Utiliser requestAnimationFrame pour optimiser la performance
-        requestAnimationFrame(parallax);
+        // Déplacer l'élément cloud de 300px vers la gauche lors du défilement
+        $('.cloud').css('transform', 'translateX(' + (-scrollPosition * 0.3) + 'px)');
     }
 
     // Initialiser la fonction de parallaxe sur le défilement de la fenêtre
@@ -52,4 +49,25 @@ jQuery(document).ready(function($) {
 
     // Appel initial
     addFadeInClasses();
+
+    // Intersection Observer pour les titres
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observer chaque titre
+    document.querySelectorAll('.section--titre__focus').forEach(title => {
+        observer.observe(title);
+    });
 });

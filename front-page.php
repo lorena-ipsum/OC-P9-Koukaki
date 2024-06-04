@@ -3,14 +3,15 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-   <section class="banner">
+<section class="banner">
        <div class="background-fallback"></div>
        <video class="hero-video" autoplay muted loop playsinline poster="<?php echo esc_url(get_template_directory_uri() . '/assets/images/banner.png'); ?>">
            <source src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/videos/StudioKoukaki_Video_Header.mp4'); ?>" type="video/mp4">
        </video>
-       <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo.png'); ?>" alt="logo Fleurs d'oranger & chats errants">
+       <div class="logo-container">
+           <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo.png'); ?>" alt="logo Fleurs d'oranger & chats errants">
+       </div>
    </section>
-
    <section id="story" class="story article__fadein section fade-in-right">
        <h2><span class="section--titre__focus">L'histoire</span></h2>
        <article id="" class="story__article">

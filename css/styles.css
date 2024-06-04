@@ -21,70 +21,56 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  pointer-events: none; /* Empêche l'affichage des contrôles */
-  transition: opacity 1s ease-in-out, transform 0.1s ease-out; /* Transition pour la parallaxe */
+  pointer-events: none;
+  transition: opacity 1s ease-in-out, transform 0.1s ease-out;
 }
 
 .hero-video {
-  opacity: 0; /* Commence cachée */
+  opacity: 0;
 }
 
 .hero-video.loaded {
-  opacity: 1; /* Devient visible quand chargée */
+  opacity: 1;
 }
 
 @keyframes float {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
   50% {
-    transform: translate3d(0, -15px, 0);
+    transform: translateY(-15px);
   }
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
 }
-.banner img {
+.logo-container {
   position: relative;
   z-index: 2;
   width: 50%;
+  transition: transform 0.1s ease-out;
+}
+
+.banner img {
+  width: 100%;
   animation: float 3s ease-in-out infinite;
-  transition: transform 0.1s ease-out; /* Transition pour la parallaxe */
 }
 
 .background-fallback {
   background: url("../assets/images/banner.png") no-repeat center center/cover;
   z-index: 0;
   opacity: 1;
-  transition: transform 0.1s ease-out; /* Transition pour la parallaxe */
+  transition: transform 0.1s ease-out;
 }
 
 .background-fallback.hidden {
-  opacity: 0; /* Devient cachée quand la vidéo est chargée */
-  z-index: -1; /* Envoyer en arrière-plan */
+  opacity: 0;
+  z-index: -1;
 }
 
 /*--------------------------------------------------------------
-#  TITRES
+# TITRES
 --------------------------------------------------------------*/
-/* Flottement */
-@keyframes float-horizontal {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(15px, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-.section--titre__focus {
-  display: inline-block;
-  animation: float-horizontal 3s ease-in-out infinite;
-  color: #FFF5E9; /* Définir la couleur du texte à blanche */
-}
-
 /* Animation for text appearance */
 @keyframes text-appear {
   0% {
@@ -99,11 +85,14 @@
 .section--titre__focus {
   position: relative;
   color: #FFF5E9; /* Couleur de texte blanche */
-  animation: none;
+  opacity: 0; /* Début de l'animation avec opacité 0 */
+  transform: translate3d(0, 20px, 0); /* Position initiale en dehors de l'écran */
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Transition pour l'effet de fade-in */
 }
 
-.section--titre__focus.loaded {
-  animation: text-appear 2s forwards;
+.section--titre__focus.is-visible {
+  opacity: 1; /* Opacité 1 pour l'animation de fade-in */
+  transform: translate3d(0, 0, 0); /* Position finale pour l'effet de fade-in */
 }
 
 /* Exclusion of animation */
@@ -264,7 +253,7 @@
   z-index: 100;
 }
 
-/* Les fleurs sont positionnées et tournent */
+/* Les fleurs sont bourrées et tournent tournent et tournent*/
 .story__article::after,
 .story h2::after,
 #studio h2::after,
@@ -278,10 +267,10 @@
 
 @keyframes rotateAnimation {
   from {
-    transform: translate3d(-50%, -50%, 0) rotate(0deg); /* Commence sans rotation */
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
   }
   to {
-    transform: translate3d(-50%, -50%, 0) rotate(360deg); /* Finalise avec 360 degrés de rotation */
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
   }
 }
 /*--------------------------------------------------------------
@@ -303,19 +292,19 @@
 .content-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align items to the right */
+  align-items: flex-end;
 }
 
 .cloud {
   background: url("../assets/images/Nuages.png") no-repeat;
   transform-origin: center;
   position: absolute;
-  left: 64.4375rem; /* Conversion de 1031px en rem (1031 / 16) */
-  top: 4.0625rem; /* Conversion de 65px en rem (65 / 16) */
-  width: 100%; /* Ajustez selon la taille de l'image */
-  height: 100%; /* Ajustez selon la taille de l'image */
+  left: 1031px;
+  top: 65px;
+  width: 100%;
+  height: 100%;
   transition: transform 0.5s ease-out;
-  z-index: 10; /* Assurez-vous qu'ils sont au-dessus des autres éléments */
+  z-index: 10;
 }
 
 /*# sourceMappingURL=styles.css.map */
