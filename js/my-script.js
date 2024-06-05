@@ -1,7 +1,9 @@
 jQuery(document).ready(function($) {
     console.log('jQuery is ready!');
 
-    // Forcer la lecture de la vidéo et cacher l'image de fallback
+/*--------------------------------------------------------------
+# Hero Header
+--------------------------------------------------------------*/
     const video = document.querySelector('.hero-video');
     const fallback = document.querySelector('.background-fallback');
     if (video) {
@@ -36,38 +38,58 @@ jQuery(document).ready(function($) {
     $(window).on('scroll', function() {
         requestAnimationFrame(parallax);
     });
-
-    // Fonction pour ajouter les classes d'animation
-    function addFadeInClasses() {
-        const sections = $('section');
-        const animationClasses = ['fade-in-up', 'fade-in-down', 'fade-in-left', 'fade-in-right'];
-        sections.each(function(index) {
-            const animationClass = animationClasses[index % animationClasses.length];
-            $(this).addClass('section ' + animationClass);
-        });
-    }
-
-    // Appel initial
-    addFadeInClasses();
-
-    // Intersection Observer pour les titres
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+    // Intersection Observer pour les sections
     const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observer chaque section
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
+
+/*--------------------------------------------------------------
+# Titres
+--------------------------------------------------------------*/
+    // Intersection Observer pour les titres
+    const titleObserverOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.2
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const titleObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, titleObserverOptions);
 
     // Observer chaque titre
     document.querySelectorAll('.section--titre__focus').forEach(title => {
-        observer.observe(title);
+        titleObserver.observe(title);
     });
 });
+
+/*--------------------------------------------------------------
+# Characters
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Menu Burger
+--------------------------------------------------------------*/

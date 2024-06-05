@@ -28,7 +28,7 @@ get_header();
            </div>
        </div>
    </section>
-
+   
    <section id="studio" class="article__fadein section fade-in-down">
        <h2><span class="section--titre__focus">Studio Koukaki</span></h2>
        <div>
@@ -36,8 +36,8 @@ get_header();
            <p>Avec une créativité et une capacité d’innovation mondialement reconnues, une expertise éditoriale et commerciale à la pointe de son industrie, le Studio Koukaki se positionne comme un acteur incontournable dans un marché en forte croissance. Koukaki construit chaque année de véritables succès et capitalise sur de puissantes marques historiques. Cette année, il vous présente “Fleurs d’oranger et chats errants”.</p>
        </div>
    </section>
-
    <section class="article__fadein section fade-in-up"> 
+        
        <p><?php get_template_part('template-parts/oscar'); ?></p>
    </section>
 </main><!-- #main -->

@@ -110,7 +110,7 @@
   position: relative;
   margin: auto;
   width: 100%;
-  height: 25rem;
+  height: 600px;
 }
 .oscar .oscar--titulo {
   background-image: url("../assets/images/Rectangle23.png");
@@ -143,67 +143,20 @@
 /*--------------------------------------------------------------
 # ANIMATIONS DES SECTIONS
 --------------------------------------------------------------*/
-/* Animation pour fade-in */
-@keyframes fade-in-up {
+/* Animation pour fade-in (du bas vers le haut) */
+@keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translate3d(0, 20px, 0);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes fade-in-down {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -20px, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes fade-in-left {
-  0% {
-    opacity: 0;
-    transform: translate3d(-20px, 0, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes fade-in-right {
-  0% {
-    opacity: 0;
-    transform: translate3d(20px, 0, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
 }
 .section {
   opacity: 0; /* Sections sont cachées au départ */
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-}
-
-.section.fade-in-up {
-  animation-name: fade-in-up;
-}
-
-.section.fade-in-down {
-  animation-name: fade-in-down;
-}
-
-.section.fade-in-left {
-  animation-name: fade-in-left;
-}
-
-.section.fade-in-right {
-  animation-name: fade-in-right;
+  animation: fade-in 1.5s ease-out forwards;
 }
 
 /*--------------------------------------------------------------
@@ -253,13 +206,37 @@
   z-index: 100;
 }
 
+.margarida--footer {
+  content: url(../assets/images/Sunflower.png);
+  transform-origin: center;
+  left: 18%;
+  top: 20%;
+  z-index: 100;
+}
+
+.orchid--footer {
+  content: url(../assets/images/orchid.png);
+  transform-origin: center;
+  left: 99%;
+  top: 32px;
+  z-index: 100;
+}
+
+.site-footer::before {
+  display: none;
+}
+
+.site-footer::after {
+  display: none;
+}
+
 /* Les fleurs sont bourrées et tournent tournent et tournent*/
 .story__article::after,
 .story h2::after,
 #studio h2::after,
 #studio h2::before,
-.site-footer::after,
-.site-footer::before {
+.orchid--footer,
+.margarida--footer {
   position: absolute;
   transform: translate3d(-50%, -50%, 0);
   animation: rotateAnimation 10s linear infinite;
