@@ -93,3 +93,40 @@ jQuery(document).ready(function($) {
 /*--------------------------------------------------------------
 # Menu Burger
 --------------------------------------------------------------*/
+document.addEventListener('DOMContentLoaded', function() {
+    var openMenu = document.getElementById('open-menu');
+    var closeMenu = document.getElementById('close-menu');
+    var primaryMenu = document.getElementById('primary-menu');
+
+    openMenu.addEventListener('click', function() {
+        primaryMenu.classList.remove('hidden');
+        primaryMenu.classList.add('visible');
+        openMenu.classList.add('hidden');
+        closeMenu.classList.remove('hidden');
+        closeMenu.classList.add('visible');
+    });
+
+    closeMenu.addEventListener('click', function() {
+        primaryMenu.classList.remove('visible');
+        primaryMenu.classList.add('hidden');
+        closeMenu.classList.remove('visible');
+        closeMenu.classList.add('hidden');
+        openMenu.classList.remove('hidden');
+        openMenu.classList.add('visible');
+    });
+
+    // Close menu when a navigation link is clicked
+    var menuLinks = primaryMenu.querySelectorAll('a');
+    menuLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            primaryMenu.classList.remove('visible');
+            primaryMenu.classList.add('hidden');
+            closeMenu.classList.remove('visible');
+            closeMenu.classList.add('hidden');
+            openMenu.classList.remove('hidden');
+            openMenu.classList.add('visible');
+        });
+    });
+});
+
+

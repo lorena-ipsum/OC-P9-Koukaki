@@ -298,3 +298,82 @@
   transition: transform 0.5s ease-out;
   z-index: 10; 
 }
+/*--------------------------------------------------------------
+# Menu Burger
+--------------------------------------------------------------*/
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FFF5E9;
+  z-index: 1000;
+
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+    .site-title {
+      flex: 1;
+      text-align: center;
+      list-style-type: none;
+    }
+
+    .fa-bars, .fa-xmark {
+      font-size: 24px;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .fa-bars.hidden {
+      display: none;
+    }
+
+    .fa-xmark.hidden {
+      display: none;
+    }
+
+    .fa-xmark.visible {
+      display: block;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 60px; // Adjust this value based on the height of your header
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px); // Adjust this value based on the height of your header
+  background-color: #FFF5E9;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+
+  &.hidden {
+    transform: translateX(100%);
+  }
+
+  &.visible {
+    transform: translateX(0);
+  }
+
+  li {
+    list-style: none;
+    margin: 20px 0;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+  }
+}
