@@ -29,5 +29,12 @@ function my_theme_enqueue_scripts() {
 
     // Enqueue votre propre fichier JavaScript
     wp_enqueue_script('my-theme-script', esc_url(get_stylesheet_directory_uri() . '/js/my-script.js'), array('jquery'), null, true);
+
+    // Enqueue Swiper JS
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true);
+
+    // Enqueue Swiper CSS (si nécessaire)
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
+?>

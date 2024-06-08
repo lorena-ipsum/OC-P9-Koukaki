@@ -72,32 +72,30 @@
 # TITRES
 --------------------------------------------------------------*/
 /* Animation for text appearance */
-@keyframes text-appear {
+/*--------------------------------------------------------------
+# TITRES
+--------------------------------------------------------------*/
+/* Animation for text appearance from bottom to top */
+@keyframes slide-up {
   0% {
+    transform: translateY(20px);
     opacity: 0;
-    transform: translate3d(0, 20px, 0);
   }
   100% {
+    transform: translateY(0);
     opacity: 1;
-    transform: translate3d(0, 0, 0);
   }
 }
 .section--titre__focus {
   position: relative;
   color: #FFF5E9; /* Couleur de texte blanche */
   opacity: 0; /* Début de l'animation avec opacité 0 */
-  transform: translate3d(0, 20px, 0); /* Position initiale en dehors de l'écran */
-  transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Transition pour l'effet de fade-in */
+  transform: translateY(20px); /* Position initiale en dehors de l'écran */
+  animation: none; /* Désactive les animations initiales */
 }
 
 .section--titre__focus.is-visible {
-  opacity: 1; /* Opacité 1 pour l'animation de fade-in */
-  transform: translate3d(0, 0, 0); /* Position finale pour l'effet de fade-in */
-}
-
-/* Exclusion of animation */
-.section--titre__focus.no-animation {
-  animation: none; /* Désactive les animations */
+  animation: slide-up 1.5s ease-out forwards; /* Applique l'animation de slide-up */
 }
 
 /*--------------------------------------------------------------
@@ -299,7 +297,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 22px 20px;
 }
 .site-header .nav-header .site-title {
   flex: 1;

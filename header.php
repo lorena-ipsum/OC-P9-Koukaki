@@ -19,6 +19,7 @@
                 <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/burger_croix.png'); ?>" class="fa-xmark hidden" id="close-menu" alt="Menu X" />
             </div>
             <ul id="primary-menu" class="menu hidden">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo.png'); ?>" alt="logo Fleurs d'oranger & chats errants">
                 <li><a href="#story">Histoire</a></li>
                 <li><a href="#characters">Personnages</a></li>
                 <li><a href="#place">Lieu</a></li>

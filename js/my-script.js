@@ -114,19 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
         openMenu.classList.remove('hidden');
         openMenu.classList.add('visible');
     });
-
-    // Close menu when a navigation link is clicked
-    var menuLinks = primaryMenu.querySelectorAll('a');
-    menuLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            primaryMenu.classList.remove('visible');
-            primaryMenu.classList.add('hidden');
-            closeMenu.classList.remove('visible');
-            closeMenu.classList.add('hidden');
-            openMenu.classList.remove('hidden');
-            openMenu.classList.add('visible');
-        });
-    });
 });
 
 
