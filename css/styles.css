@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*--------------------------------------------------------------
 # HERO HEADER
 --------------------------------------------------------------*/
@@ -10,6 +9,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.banner img {
+  width: 100%;
+  animation: float 3s ease-in-out infinite;
 }
 
 .hero-video,
@@ -33,29 +36,6 @@
   opacity: 1;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-.logo-container {
-  position: relative;
-  z-index: 2;
-  width: 50%;
-  transition: transform 0.1s ease-out;
-}
-
-.banner img {
-  width: 100%;
-  animation: float 3s ease-in-out infinite;
-}
-
 .background-fallback {
   background: url("../assets/images/banner.png") no-repeat center center/cover;
   z-index: 0;
@@ -68,14 +48,24 @@
   z-index: -1;
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+.logo-container {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  transition: transform 0.1s ease-out;
+}
+
 /*--------------------------------------------------------------
 # TITRES
 --------------------------------------------------------------*/
-/* Animation for text appearance */
-/*--------------------------------------------------------------
-# TITRES
---------------------------------------------------------------*/
-/* Animation for text appearance from bottom to top */
 @keyframes slide-up {
   0% {
     transform: translateY(20px);
@@ -88,14 +78,14 @@
 }
 .section--titre__focus {
   position: relative;
-  color: #FFF5E9; /* Couleur de texte blanche */
-  opacity: 0; /* Début de l'animation avec opacité 0 */
-  transform: translateY(20px); /* Position initiale en dehors de l'écran */
-  animation: none; /* Désactive les animations initiales */
+  color: #FFF5E9;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: none;
 }
 
 .section--titre__focus.is-visible {
-  animation: slide-up 1.5s ease-out forwards; /* Applique l'animation de slide-up */
+  animation: slide-up 1.5s ease-out forwards;
 }
 
 /*--------------------------------------------------------------
@@ -110,7 +100,7 @@
   width: 100%;
   height: 600px;
 }
-.oscar .oscar--titulo {
+.oscar--titulo {
   background-image: url("../assets/images/Rectangle23.png");
   background-position: center;
   width: 53rem;
@@ -127,21 +117,20 @@
   letter-spacing: -0.0525rem;
   text-align: left;
 }
-.oscar .oscar--image-container {
+.oscar--image-container {
   width: 17.375rem;
   height: 8.0625rem;
   background: url("../assets/images/oscar.png") no-repeat center;
   background-size: cover;
-  flex-shrink: 0; /* Empêche l'image de se rétrécir */
+  flex-shrink: 0;
   display: flex;
-  align-items: center; /* Centre l'image verticalement */
-  justify-content: center; /* Centre l'image horizontalement */
+  align-items: center;
+  justify-content: center;
 }
 
 /*--------------------------------------------------------------
 # ANIMATIONS DES SECTIONS
 --------------------------------------------------------------*/
-/* Animation pour fade-in (du bas vers le haut) */
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -153,59 +142,53 @@
   }
 }
 .section {
-  opacity: 0; /* Sections sont cachées au départ */
+  opacity: 0;
   animation: fade-in 1.5s ease-out forwards;
 }
 
 /*--------------------------------------------------------------
 # Les fleurs
 --------------------------------------------------------------*/
-/* Styles individuels pour chaque fleur */
 .story__article::after {
-  content: url(../assets/images/Hibiscus.png); /* hibiscus de l'histoire */
+  content: url(../assets/images/Hibiscus.png);
+  position: absolute;
   transform-origin: center;
   left: 82em;
   top: 7em;
 }
 
 .story h2::after {
-  content: url(../assets/images/Sunflower.png); /* margarida de l'histoire */
+  content: url(../assets/images/Sunflower.png);
+  position: absolute;
   transform-origin: center;
   top: 7.5em;
   left: 1.9em;
 }
 
 #studio h2::after {
-  content: url(../assets/images/flower.png); /* mille-fleur orange */
+  content: url(../assets/images/flower.png);
+  position: absolute;
   transform-origin: center;
   left: 87%;
   top: 2em;
 }
 
 #studio h2::before {
-  content: url(../assets/images/random_flower.png); /* fleur purple studio */
+  content: url(../assets/images/random_flower.png);
+  position: absolute;
   transform-origin: center;
   left: 2em;
   top: 1.5em;
 }
 
-.site-footer::before {
-  content: url(../assets/images/Sunflower.png); /* margarida footer */
-  transform-origin: center;
-  left: 4em;
-  top: 5em;
-}
-
+.site-footer::before,
 .site-footer::after {
-  content: url(../assets/images/orchid.png); /* violeta violet */
-  transform-origin: center;
-  right: 10%;
-  top: 2em;
-  z-index: 100;
+  display: none;
 }
 
 .margarida--footer {
   content: url(../assets/images/Sunflower.png);
+  position: absolute;
   transform-origin: center;
   left: 18%;
   top: 20%;
@@ -214,27 +197,21 @@
 
 .orchid--footer {
   content: url(../assets/images/orchid.png);
+  position: absolute;
   transform-origin: center;
   left: 99%;
   top: 32px;
   z-index: 100;
 }
 
-.site-footer::before {
-  display: none;
-}
-
-.site-footer::after {
-  display: none;
-}
-
-/* Les fleurs sont bourrées et tournent tournent et tournent*/
 .story__article::after,
 .story h2::after,
 #studio h2::after,
 #studio h2::before,
 .orchid--footer,
-.margarida--footer {
+.margarida--footer,
+.flowermenu,
+.flowermenu4 {
   position: absolute;
   transform: translate3d(-50%, -50%, 0);
   animation: rotateAnimation 10s linear infinite;
@@ -249,7 +226,7 @@
   }
 }
 /*--------------------------------------------------------------
-# Swiper Characthers
+# Swiper Characters
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Le Lieu
@@ -297,12 +274,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 20px;
+  padding: 20px 20px;
 }
 .site-header .nav-header .site-title {
   flex: 1;
   text-align: center;
-  list-style-type: none;
+}
+.site-header .nav-header li {
+  list-style: none;
+  text-decoration: none;
 }
 .site-header .nav-header .fa-bars, .site-header .nav-header .fa-xmark {
   font-size: 24px;
@@ -343,12 +323,91 @@
 }
 .menu li {
   list-style: none;
-  margin: 20px 0;
+  margin: 0px;
 }
 .menu a {
   color: black;
   text-decoration: none;
-  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Roboto Mono";
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.main-navigation ul {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.main-navigation li:hover {
+  text-shadow: 0px 0px 14px #FF5C00;
+}
+
+.catorange, .catblack, .catpurple {
+  position: absolute;
+  transform-origin: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.catorange {
+  bottom: 10%;
+  left: 10%;
+}
+
+.catpurple {
+  top: 20%;
+  left: 17%;
+}
+
+.catblack {
+  right: 20%;
+  bottom: 23%;
+}
+
+.hibiscusmenu {
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+}
+
+.StudioKoukaki {
+  position: absolute;
+  bottom: 3%;
+  left: 45%;
+}
+
+.flowermenu {
+  position: absolute;
+  transform-origin: center;
+  bottom: 30%;
+  left: 20%;
+}
+
+.flowermenu2 {
+  position: absolute;
+  transform-origin: center;
+  bottom: 50%;
+  right: 0%;
+}
+
+.flowermenu3 {
+  position: absolute;
+  transform-origin: center;
+  top: 10%;
+  left: 0%;
+}
+
+.flowermenu4 {
+  position: absolute;
+  transform-origin: center;
+  top: 15%;
+  right: 17%;
 }
 
 /*# sourceMappingURL=styles.css.map */
