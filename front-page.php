@@ -17,7 +17,7 @@ get_header();
        <article id="" class="story__article">
            <p><?php echo esc_html(get_theme_mod('story')); ?></p>
        </article>
-       <?php get_template_part('template-parts/characters'); ?>
+       <?php get_template_part('template-parts/characters-swiper'); ?>
        <div id="place" class="section">
            <div class="content-left">
                <h3><span class="section--titre__focus">Le Lieu</span></h3>

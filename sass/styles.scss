@@ -2,6 +2,10 @@
 # HERO HEADER
 --------------------------------------------------------------*/
 
+html, body {
+  overflow-x: hidden; /* Désactive le défilement horizontal */
+}
+
 .banner {
   position: relative;
   width: 100%;
@@ -99,41 +103,45 @@
 
 .oscar {
   display: flex;
+  flex-direction: column; /* Changer la direction pour la mise en ligne */
   justify-content: center;
   align-items: center;
   position: relative;
   margin: auto;
   width: 100%;
-  height: 600px;
+  height: auto;
+  text-align: center;
+}
 
-  &--titulo {
-    background-image: url('../assets/images/Rectangle23.png');
-    background-position: center;
-    width: 53rem;
-    height: 19.4375rem;
-    padding: 4.0625rem;
-    margin-right: 1.5rem;
-    color: #FFF5E9;
-    text-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-    font-family: 'Quicksand', sans-serif;
-    font-size: 2.625rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.0525rem;
-    text-align: left;
-  }
+.oscar--titulo {
+  background-image: url('../assets/images/Rectangle23.png');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  max-width: 53rem;
+  padding: 4.0625rem;
+  color: #FFF5E9;
+  text-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.0525rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
 
-  &--image-container {
-    width: 17.375rem;
-    height: 8.0625rem;
-    background: url('../assets/images/oscar.png') no-repeat center;
-    background-size: cover;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.oscar--image-container {
+  width: 100%;
+  max-width: 17.375rem;
+  height: 8.0625rem;
+  background: url('../assets/images/oscar.png') no-repeat center;
+  background-size: cover;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*--------------------------------------------------------------
@@ -240,6 +248,37 @@
 /*--------------------------------------------------------------
 # Swiper Characters
 --------------------------------------------------------------*/
+/* Styles pour Swiper Characters */
+.swiper-container {
+  background: none;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background: none; 
+  background-position: center;
+  background-size: cover;
+  width: 440px;
+  height: 440px; // Augmenter la hauteur pour inclure l'espace pour le nom
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+}
+
+.swiper-slide figcaption {
+  text-align: center;
+  margin-top: 10px; // Espace entre l'image et le nom
+}
 
 /*--------------------------------------------------------------
 # Le Lieu
@@ -276,6 +315,7 @@
 /*--------------------------------------------------------------
 # Menu Burger
 --------------------------------------------------------------*/
+/* Base styles for the menu */
 .site-header {
   position: fixed;
   top: 0;
@@ -324,10 +364,10 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 60px; // Adjust this value based on the height of your header
+  top: 60px; /* Ajuster cette valeur en fonction de la hauteur de votre header */
   left: 0;
   width: 100%;
-  height: calc(100% - 60px); // Adjust this value based on the height of your header
+  height: calc(100% - 60px); /* Ajuster cette valeur en fonction de la hauteur de votre header */
   background-color: #FFF5E9;
   color: black;
   justify-content: center;
@@ -353,7 +393,6 @@
     color: black;
     text-decoration: none;
     text-align: center;
-    text-decoration: none;
     font-family: "Roboto Mono";
     font-size: 54px;
     font-style: normal;
@@ -374,66 +413,239 @@
   text-shadow: 0px 0px 14px #FF5C00;
 }
 
-//Personages du Menu Burger
+/* Media queries for responsive adjustments */
+@media (max-width: 599px) {
+  .menu a {
+    font-size: 24px;
+  }
 
-.catorange, .catblack, .catpurple {
-  position: absolute;
-  transform-origin: center;
-  animation: float 3s ease-in-out infinite;
+  .menu {
+    height: 100%;
+    top: 60px; /* Ajuster cette valeur en fonction de la hauteur de votre header */
+  }
+
+  .story__article::after,
+  .story h2::after,
+  #studio h2::after,
+  #studio h2::before,
+  .orchid--footer,
+  .margarida--footer,
+  .flowermenu,
+  .flowermenu4,
+  .catblack,
+  .catpurple,
+  .catorange {
+    display: none; /* Masquer les éléments tournants sur mobile */
+  }
+
+  .hero-video {
+    display: none; /* Masquer la vidéo sur mobile */
+  }
+
+  .background-fallback {
+    opacity: 1; /* S'assurer que le fallback est visible */
+  }
+
+  #place {
+    flex-direction: column;
+  }
+
+  #place .content-left,
+  #place .content-right {
+    width: 100%;
+  }
+
+  #place .content-right {
+    display: none; /* Masquer le content-right sur mobile */
+  }
+
+  .oscar {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .oscar--titulo {
+    width: 100%;
+    height: auto;
+    font-size: 2rem; /* Ajuster la taille du texte pour mobile */
+    padding: 2rem; /* Ajuster le padding pour mobile */
+    margin: 0 auto 1.5rem;
+  }
+
+  .oscar--image-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  h2, h3 {
+    font-size: 34px;
+  }
 }
 
-.catorange {
-  bottom: 10%;
-  left: 10%;
+@media (min-width: 600px) and (max-width: 1024px) {
+  .menu a {
+    font-size: 36px;
+  }
+
+  .menu {
+    height: 100%;
+    top: 60px; /* Ajuster cette valeur en fonction de la hauteur de votre header */
+  }
+
+  .oscar {
+    flex-direction: column;
+    height: auto;
+    text-align: center; /* Centrer le texte */
+  }
+
+  .oscar--titulo {
+    width: 100%;
+    height: auto;
+    margin: 0 auto 1.5rem;
+  }
+
+  .oscar--image-container {
+    width: 100%;
+    height: 200px; /* Ajuster la hauteur selon vos besoins */
+    margin: 0 auto;
+  }
+
+  #place {
+    flex-direction: column;
+  }
+
+  #place .content-left {
+    width: 100%;
+  }
+
+  #place .content-right {
+    display: none;
+  }
+
+  .cloud {
+    display: none;
+  }
+
+  .story__article::after,
+  .story h2::after,
+  #studio h2::after,
+  #studio h2::before,
+  .orchid--footer,
+  .margarida--footer,
+  .flowermenu,
+  .flowermenu4,
+  .catblack,
+  .catpurple,
+  .catorange {
+    display: none; /* Masquer les éléments tournants sur tablette */
+  }
+
+  h2, h3 {
+    font-size: 34px;
+  }
+}
+
+/*--------------------------------------------------------------
+# ANIMATIONS DES TETES DE CHAT DU MENU-BURGER
+--------------------------------------------------------------*/
+
+@keyframes multi-direction-float {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15px, -10px);
+  }
+  50% {
+    transform: translate(-10px, 15px);
+  }
+  75% {
+    transform: translate(10px, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes multi-direction-float-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(5px, -5px);
+  }
+  66% {
+    transform: translate(-5px, 5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.catblack {
+  position: absolute;
+  transform-origin: center;
+  animation: multi-direction-float 4s ease-in-out infinite;
+  right: 20%;
+  bottom: 23%;
 }
 
 .catpurple {
+  position: absolute;
+  transform-origin: center;
+  animation: multi-direction-float 5s ease-in-out infinite;
   top: 20%;
   left: 17%;
 }
 
-.catblack {
-  right: 20%;
-  bottom: 23%;
+.catorange {
+  position: absolute;
+  transform-origin: center;
+  animation: multi-direction-float-2 4s ease-in-out infinite;
+  bottom: 10%;
+  left: 10%;
 }
+
+/*--------------------------------------------------------------
+# LES FLEURS DU MENU BURGER
+--------------------------------------------------------------*/
 
 .hibiscusmenu {
   position: absolute;
   bottom: 0%;
   right: 0%;
+  z-index: -10;
 }
 
-.StudioKoukaki{
+.StudioKoukaki {
   position: absolute;
   bottom: 3%;
   left: 45%;
 }
 
-
-.flowermenu{
+.flowermenu {
   position: absolute;
   transform-origin: center;
   bottom: 30%;
   left: 20%;
 }
 
-
-.flowermenu2{
+.flowermenu2 {
   position: absolute;
   transform-origin: center;
   bottom: 50%;
   right: 0%;
 }
 
-
-.flowermenu3{
+.flowermenu3 {
   position: absolute;
   transform-origin: center;
   top: 10%;
   left: 0%;
 }
 
-.flowermenu4{
+.flowermenu4 {
   position: absolute;
   transform-origin: center;
   top: 15%;

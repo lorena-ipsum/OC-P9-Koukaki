@@ -35,6 +35,10 @@ function my_theme_enqueue_scripts() {
 
     // Enqueue Swiper CSS (si nécessaire)
     wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+
+    // Enqueue le script personnalisé pour Swiper
+    wp_enqueue_script('custom-swiper-js', get_stylesheet_directory_uri() . '/js/custom-swiper.js', array('swiper-js'), null, true);
+
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
 ?>

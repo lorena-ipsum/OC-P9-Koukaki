@@ -1,12 +1,16 @@
 jQuery(document).ready(function($) {
     console.log('jQuery is ready!');
 
-/*--------------------------------------------------------------
-# Hero Header
---------------------------------------------------------------*/
+    /*--------------------------------------------------------------
+    # Hero Header
+    --------------------------------------------------------------*/
     const video = document.querySelector('.hero-video');
     const fallback = document.querySelector('.background-fallback');
-    if (video) {
+
+    // Vérifier si l'écran est mobile
+    const isMobile = window.matchMedia("only screen and (max-width: 599px)").matches;
+
+    if (video && !isMobile) {
         video.addEventListener('canplay', function() {
             video.classList.add('loaded');
             if (fallback) {
@@ -38,9 +42,10 @@ jQuery(document).ready(function($) {
     $(window).on('scroll', function() {
         requestAnimationFrame(parallax);
     });
-/*--------------------------------------------------------------
-# Sections
---------------------------------------------------------------*/
+
+    /*--------------------------------------------------------------
+    # Sections
+    --------------------------------------------------------------*/
     // Intersection Observer pour les sections
     const observerOptions = {
         root: null,
@@ -62,9 +67,9 @@ jQuery(document).ready(function($) {
         observer.observe(section);
     });
 
-/*--------------------------------------------------------------
-# Titres
---------------------------------------------------------------*/
+    /*--------------------------------------------------------------
+    # Titres
+    --------------------------------------------------------------*/
     // Intersection Observer pour les titres
     const titleObserverOptions = {
         root: null,
@@ -128,5 +133,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-
