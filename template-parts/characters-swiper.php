@@ -7,8 +7,8 @@ $args = array(
 );
 $characters_query = new WP_Query($args);
 ?>
-
-<h3><span class="section--titre__focus">Les personnages</span></h3> <!-- Déplacez le titre en dehors de swiper-container -->
+<div>
+<h3><span class="section--titre__focus .bg">Les personnages</span></h3> </div>
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <?php while ($characters_query->have_posts()) : $characters_query->the_post(); ?>

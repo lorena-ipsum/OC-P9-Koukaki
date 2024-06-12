@@ -21,7 +21,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 1440px;
   background-color: #FFF5E9;
   z-index: 1000;
 
@@ -77,12 +77,14 @@
   transition: transform 0.3s ease;
   z-index: 999;
 
-  &.hidden {
+  &.hidden, .flowermenu2 {
     transform: translateX(100%);
+    display: none;
   }
 
-  &.visible {
+  &.visible, .flowermenu2 {
     transform: translateX(0);
+    display: block;
   }
 
   li {
@@ -181,9 +183,11 @@
 --------------------------------------------------------------*/
 
 .hibiscusmenu {
+  content: url(../assets/images/bighibiscus.png);
+  transform-origin: center;
   position: absolute;
-  bottom: 0%;
-  right: 0%;
+  bottom: -95%;
+  right: -45%;
   z-index: -10;
 }
 
@@ -204,14 +208,17 @@
   position: absolute;
   transform-origin: center;
   bottom: 50%;
-  right: 0%;
+  right: -4%;
+  width: 62.927px;
+  height: 62.927px;
+  flex-shrink: 0;
 }
 
 .flowermenu3 {
   position: absolute;
   transform-origin: center;
-  top: 10%;
-  left: 0%;
+  top: 20%;
+  left: 3%;
 }
 
 .flowermenu4 {
@@ -337,7 +344,7 @@ html, body {
 }
 
 .section--titre__focus.is-visible {
-  animation: slide-up 1.5s ease-out forwards;
+  animation: slide-up 1.5s linear forwards;
 }
 
 
@@ -377,6 +384,14 @@ html, body {
   top: 1.5em;
 }
 
+.site-footer ul::after {
+  content: url(../assets/images/bighibiscus.png);
+  position: absolute;
+  transform-origin: center;
+  left: 50%;
+  bottom: -100%;
+}
+
 .site-footer::before,
 .site-footer::after {
   display: none;
@@ -386,7 +401,7 @@ html, body {
   content: url(../assets/images/Sunflower.png);
   position: absolute;
   transform-origin: center;
-  left: 18%;
+  left: 12%;
   top: 20%;
   z-index: 100;
 }
@@ -407,7 +422,11 @@ html, body {
 .orchid--footer,
 .margarida--footer,
 .flowermenu,
-.flowermenu4 {
+.flowermenu4,
+.flowermenu3,
+.flowermenu2,
+.site-footer ul::after,
+.hibiscusmenu, {
   position: absolute;
   transform: translate3d(-50%, -50%, 0);
   animation: rotateAnimation 10s linear infinite;
@@ -425,6 +444,20 @@ html, body {
 /*--------------------------------------------------------------
 # Swiper Characters
 --------------------------------------------------------------*/
+.bg {
+  background-image: url('../assets/images/orange_place_bg.png');
+  background-position: center;
+  background-size: cover;
+  display:block;
+  width: 100%;
+  max-width: 397px;
+}
+
+#characters {
+  display: flex;
+  flex-direction:column;
+}
+
 .swiper-container {
   background: none;
   max-width: 100%;
@@ -446,8 +479,9 @@ html, body {
 
 .swiper-slide img {
   display: block;
-  max-width: 100%;
+  max-width: 400px;
   max-height: 100%;
+  gap: 15px;
   object-fit: cover;
 }
 
@@ -494,7 +528,7 @@ html, body {
 
 .oscar {
   display: flex;
-  flex-direction: column; /* Changer la direction pour la mise en ligne */
+  flex-direction: row; /* Changer la direction pour la mise en ligne */
   justify-content: center;
   align-items: center;
   position: relative;
@@ -567,7 +601,8 @@ html, body {
   .flowermenu4,
   .catblack,
   .catpurple,
-  .catorange {
+  .catorange,
+  .hibiscusmenu, {
     display: none; /* Masquer les éléments tournants sur mobile */
   }
 
@@ -627,6 +662,11 @@ html, body {
     top: 60px; 
   }
 
+  .banner {
+    height: 40vh;
+    width: fit-content;
+  }
+
   .oscar {
     flex-direction: column;
     height: auto;
@@ -661,7 +701,7 @@ html, body {
     display: none;
   }
 
-  /* Masquer les éléments tournants sur tablette ???
+  /* Masquer les éléments tournants sur tablette */
   .story__article::after,
   .story h2::after,
   #studio h2::after,
@@ -672,12 +712,15 @@ html, body {
   .flowermenu4,
   .catblack,
   .catpurple,
-  .catorange {
+  .catorange,
+  .hibiscusmenu, {
     display: none;  
-  }*/
+  }
 
   h2, h3 {
     font-size: 34px;
   }
+
+
 }
 
