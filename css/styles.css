@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /*--------------------------------------------------------------
 # Sommaire
-
 8 - Menu Burger
 111 - ANIMATIONS DES TETES DE CHAT DU MENU-BURGER
 173 - LES FLEURS DU MENU BURGER
@@ -21,9 +20,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
   background-color: #FFF5E9;
   z-index: 1000;
+  margin: 0 auto;
 }
 .site-header .nav-header {
   display: flex;
@@ -54,14 +55,20 @@
   display: block;
 }
 
+#primary-menu {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .menu {
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 60px; /* Ajuster cette valeur en fonction de la hauteur de votre header */
+  top: 60px;
   left: 0;
   width: 100%;
-  height: calc(100% - 60px); /* Ajuster cette valeur en fonction de la hauteur de votre header */
+  height: calc(100% - 60px);
   background-color: #FFF5E9;
   color: black;
   justify-content: center;
@@ -360,11 +367,16 @@ html, body {
 }
 
 .site-footer ul::after {
+  display: none;
+}
+
+.bighibiscus {
   content: url(../assets/images/bighibiscus.png);
   position: absolute;
   transform-origin: center;
   left: 50%;
-  bottom: -100%;
+  top: 120%;
+  z-index: -10;
 }
 
 .site-footer::before,
@@ -400,8 +412,8 @@ html, body {
 .flowermenu4,
 .flowermenu3,
 .flowermenu2,
-.site-footer ul::after,
-.hibiscusmenu {
+.hibiscusmenu,
+.bighibiscus {
   position: absolute;
   transform: translate3d(-50%, -50%, 0);
   animation: rotateAnimation 10s linear infinite;
@@ -430,6 +442,10 @@ html, body {
 #characters {
   display: flex;
   flex-direction: column;
+}
+
+.story #characters h3 {
+  margin-left: -700px;
 }
 
 .swiper-container {
@@ -571,7 +587,9 @@ html, body {
   .catblack,
   .catpurple,
   .catorange,
-  .hibiscusmenu {
+  .hibiscusmenu,
+  .site-footer ul::after,
+  .bighibiscus {
     display: none; /* Masquer les éléments tournants sur mobile */
   }
   .hero-video {
@@ -589,6 +607,9 @@ html, body {
   }
   #place .content-right {
     display: none; /* Masquer le content-right sur mobile */
+  }
+  .story #characters h3 {
+    margin-left: 0px;
   }
   .oscar {
     flex-direction: column;
@@ -634,8 +655,10 @@ html, body {
   }
   .oscar--image-container {
     width: 100%;
-    height: 200px;
     margin: 0 auto;
+  }
+  .story #characters h3 {
+    margin-left: -200px;
   }
   #place {
     flex-direction: column;
@@ -661,7 +684,8 @@ html, body {
   .catblack,
   .catpurple,
   .catorange,
-  .hibiscusmenu {
+  .hibiscusmenu,
+  .site-footer ul::after {
     display: none;
   }
   h2, h3 {

@@ -23,3 +23,5 @@ $characters_query = new WP_Query($args);
 </div>
 
 <?php wp_reset_postdata(); ?>
+
+
