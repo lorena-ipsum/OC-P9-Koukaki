@@ -530,10 +530,12 @@ html, body {
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: auto;
+  /*margin: auto;*/
   width: 100%;
   height: auto;
   text-align: center;
+  margin-top: 150px;
+  margin-bottom: 80px;
 }
 
 .oscar--titulo {
