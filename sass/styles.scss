@@ -12,19 +12,24 @@
 493 - NOMINATION OSCAR
 540 -  MEDIA QUERIES
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # Menu Burger
 --------------------------------------------------------------*/
-.site-header {
+.site-header-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #FFF5E9;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
+}
+
+.site-header {
   max-width: 1440px;
   width: 100%;
-  background-color: #FFF5E9;
-  z-index: 1000;
-  margin: 0 auto;
+  margin: auto;
 
   .nav-header {
     display: flex;
@@ -62,6 +67,12 @@
   }
 }
 
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 #primary-menu {
   max-width: 1440px;
   width: 100%;
@@ -71,26 +82,24 @@
 .menu {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 60px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   height: calc(100% - 60px); 
   background-color: #FFF5E9;
   color: black;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(100%);
   transition: transform 0.3s ease;
   z-index: 999;
 
   &.hidden, .flowermenu2 {
-    transform: translateX(100%);
     display: none;
   }
 
   &.visible, .flowermenu2 {
-    transform: translateX(0);
     display: block;
   }
 
@@ -110,6 +119,7 @@
     line-height: normal;
   }
 }
+
 
 .main-navigation ul {
   display: flex;
